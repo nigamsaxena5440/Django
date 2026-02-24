@@ -1,0 +1,96 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block childpage %}
+
+     <div class="row heading text-center py-4">
+    <div class="col-sm-6 mx-auto">
+       <p class="fs-3">Book Your<b class="txt-color1"> Services
+           </b></p>
+        <i>We are always ready for work.We are always ready for work.We are always ready for work.</i>
+
+    </div>
+</div>
+<div class="row mt-3">
+
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6 shadow p-3 mb-5 bg-body rounded mt-3 p-4">
+       <form method="post">
+           {% csrf_token %}
+        <div class="row">
+                <div class="col-sm-6">
+                <div class="mb-3">
+  <label class="form-label"><b>Service Provider Id</b></label>
+                    {% if request.GET.id is None %}
+                    <script>
+                        alter('You need to choose a service')
+                        location.href-'/allservices/'
+                    </script>
+                    {% endif %}
+  <input type="number" name="provider" value="{{request.GET.id}}" class="form-control" required id="provider">
+</div>
+            </div>
+        </div>
+        <div class="row">
+            <!----------appointment date and time ,which service you want(describe),payment range ,current address--------->
+            <div class="col-sm-6">
+                <div class="mb-3">
+  <label class="form-label"><b>Appointment Date</b></label>
+  <input type="date" name="date" class="form-control" required id="date">
+</div>
+            </div>
+            <div class="col-sm-6">
+                <div class="mb-3">
+  <label class="form-label"><b>Appointment Time</b></label>
+  <input type="time" name="time" class="form-control" required id="time" placeholder="Select time">
+</div>
+            </div>
+        </div>
+     <div class="row">
+        <div class="mb-3">
+  <label class="form-label"><b>Describe which Service you want(Full Detail)</b></label>
+  <textarea class="form-control" name="detail" id="detail" required rows="3"></textarea>
+</div>
+     </div>
+        <div class="row">
+
+            <div class="mb-3">
+  <label class="form-label"><b>Your Full Address</b></label>
+                <textarea class="form-control" name="address" required id="Address"></textarea>
+</div>
+
+        </div>
+
+        <div class="row">
+             <div class="col-sm-6">
+                <div class="mb-3">
+  <label class="form-label"><b>City</b></label>
+  <input type="text" class="form-control" id="city" name="city" required placeholder="Enter Your City">
+</div>
+            </div>
+            <div class="col-sm-6">
+                <div class="mb-3">
+  <label class="form-label"><b>Pincode</b></label>
+  <input type="text" class="form-control" id="pincode" name="pincode" required placeholder="Enter Your Pincode">
+</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="mb-3">
+  <label class="form-label"><b>Payment Range</b></label>
+  <input type="number" class="form-control" name="payment" required id="range">
+</div>
+            </div>
+        </div>
+        <div>
+        <input type="submit" value="Book Now" class="bg-mycolor1 btn w-25 mx-auto"/>
+        </div>
+           </form>
+        </div>
+<div class="col-sm-3"></div>
+    </div>
+
+
+
+{% endblock %}

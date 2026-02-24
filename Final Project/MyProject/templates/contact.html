@@ -1,0 +1,75 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block childpage %}
+<style>
+    .form-control
+    {
+    height:50px;
+    }
+</style>
+<!----start heading--->
+<div class="row heading text-center py-4">
+    <div class="col-sm-6 mx-auto">
+       <p class="fs-3">Contact <b class="txt-color1">Us
+           <i class="fa-solid fa-phone"></i></b></p>
+        <i>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</i>
+    </div>
+</div>
+
+<!----end heading--->
+
+<div class="row">
+    <div class="col-sm-10 mx-auto">
+        <div class="row">
+            <div class="col-sm-7" style="background:grey;">
+
+
+
+                <form method="post" autocomplete="off">
+                    {% csrf_token %}
+                    <b>Name :</b><br/><input type="text" name="name" class="form-control shadow-lg mb-2 bg-body-tertiary rounded-0" placeholder="Name.." required/>
+
+                    <b>Email :</b><br/><input type="email" name="email" class="form-control shadow-lg mb-2 bg-body-tertiary rounded-0" placeholder="Email.." required/>
+
+                    <b>Mobile :</b><br/><input type="text" name="mobile" class="form-control shadow-lg mb-2 bg-body-tertiary rounded-0" placeholder="Mobile.." required/>
+
+                    <b>Message :</b><br/>
+                    <textarea class="form-control shadow-lg mb-4 bg-body-tertiary rounded-0" placeholder="Message" style="height:90px;" name="msg"></textarea><br>
+
+                    <input type="submit" value="Save" class="form-control shadow-lg mb-3 bg-mycolor1 rounded-0 text-dark w-25"/>
+
+                </form>
+            </div>
+            <div class="col-sm-5 shadow-lg">
+                <h1 class="ps-5 pt-3 fs-2 mb-2 txt-color1"><u>Address</u> :</h1>
+                <h3 class="ps-5 fs-5"><i class="fa-solid fa-location-dot"></i>  Shahjahanpur<br/>
+                    <p class="ps-4 mb-0">Uttar Pradesh</p>
+                    <p class="ps-4 mb-0">242001</p></h3>
+                <h1 class="ps-5 pt-3 fs-2 mb-2 txt-color1"><u>Phone no.</u>:</h1>
+                <h4 class="ps-5 fs-5"><i class="fa-solid fa-phone"></i>  +91 5444480187</h4>
+                <h4 class="ps-5 fs-5"><i class="fa-solid fa-mobile"></i>  +91 9044480232</h4>
+                <h1 class="ps-5 pt-3 fs-2 mb-2 txt-color1"><u>Email</u></h1>
+                <h4 class="ps-5 fs-5"><i class="fa-solid fa-envelope"></i>  rohan2211@gmail.com</h4>
+
+            </div>
+        </div>
+    </div>
+    <!----start heading--->
+<div class="row heading text-center py-4">
+    <div class="col-sm-6 mx-auto">
+       <p class="fs-3">Find Us <b class="txt-color1">On Google Map
+           <i class="fa-solid fa-location-dot"></i></b></p>
+        <i>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</i>
+    </div>
+</div>
+
+<!----end heading--->
+    <div class="row mb-5">
+        <div class="col-sm-10 mx-auto">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.1611509332565!2d80.96384467486784!3d26.898380260707484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39995785d5f7f1a5%3A0xffa47f1efe103f0d!2sTechpile%20Technology%20Pvt.%20Ltd.%20%7C%7C%20Internet%20website%20developers!5e0!3m2!1sen!2sin!4v1726582948722!5m2!1sen!2sin" class="w-100" style="border:0;min-height:500px;"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

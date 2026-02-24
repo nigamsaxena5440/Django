@@ -1,0 +1,203 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block childpage %}
+
+<div class="row slider">
+
+        <div class="col-sm-12 p-0">
+            <!-- Slider-->
+            <div id="carouselExampleCaptions" class="carousel slide carousel-fade"  data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5" aria-label="Slide 6"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="6" aria-label="Slide 1"></button>
+  </div>
+  <div class="carousel-inner">
+      {% for x in sliderdata %}
+    <div class="carousel-item active">
+      <img src="../{{x.picture}}" style="max-height:600px;" data-ba-interval="3000" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>{{x.title}}</h5>
+        <p>{{x.description}}</p>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+            <!-- end slider-->
+
+        </div>
+    </div>
+<!--- category ------>
+
+
+     <div class="row heading text-center py-4">
+    <div class="col-sm-6 mx-auto">
+       <p class="fs-3">Features<b class="txt-color1"> Categories
+           </b></p>
+        <i>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</i>
+    </div>
+</div>
+    <div class="row category">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+
+            <div class="row">
+                {% for x in cdata %}
+                  <!--- start category-->
+                <div class="col-sm-2">
+                    <a href="/allservices?cid={{x.id}}" style="text-decoration:none;color:black;">
+
+                    <p class=" shadow-sm p-2 mb-2 bg-body-tertiary rounded text-center">
+                        <img src="../{{x.category_picture}}" class="img-fluid"/>
+                        <b>{{x.category_name}}</b><br/>
+                        <a href="/booknow?id={{x.id}}" class="btn btn-dark">Book Service</a>
+                    </p>
+                        </a>
+
+                    </div>
+                    <!---end category---->
+                {% endfor %}
+
+                </div>
+            </div>
+             <!-----end----->
+        <div class="col-sm-1"></div>
+    </div>
+
+
+        <!---Our Services section start----->
+
+     <div class="row heading text-center py-4">
+    <div class="col-sm-6 mx-auto">
+       <p class="fs-3">Most Popular<b class="txt-color1"> Services
+           </b></p>
+        <i>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</i>
+    </div>
+</div>
+
+<div class="container">
+<div class="row section2 my-4">
+    {% for x in servicedata %}
+    <div class="col-sm-4 mb-4">
+      <div class="card position-relative mx-auto imgzoom border-0 shadow-lg p-3 w-100">
+
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-mycolor2">&#8377;{{x.discount_price}} <span class="visually-hidden">unread messages</span></span>
+
+  <img src="../{{x.service_picture}}" class="card-img-top" alt="...">
+         <div class="position-absolute top-5 start-5 badge rounded-pill text-bg-dark">{{x.service_category}}</div>
+  <div class="card-body">
+    <h5 class="card-title">{{x.service_name}}</h5>
+      <h6 class="card-subtitle"><b>{{x.provider_name}}</b>
+      <img src="../{{x.provider_picture}}" height="60px" width="60px" class=" float-end rounded-circle"/>
+      </h6>
+      <h6 class="card-subtitle py-2 text-secondary"><i class="fa-solid fa-location-dot"></i>{{x.address}} ,{{x.city}}</h6>
+    <div class="card-text text-warning"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <b class="text-dark float-end">&#8377;{{x.avg_price}}/-</b></div>
+    <div class="mt-3">
+
+       <a href="/service?msg={{x.id}}" class="btn bg-mycolor1 text-dark">Know more</a>
+    </div>
+  </div>
+</div>
+    </div>
+{% endfor %}
+
+</div>
+    </div>
+<!----Our services section end--->
+
+
+<!---How it work section start---->
+
+       <div class="row heading text-center py-4">
+    <div class="col-sm-6 mx-auto">
+       <p class="fs-3">How it<b class="txt-color1"> Works
+           </b></p>
+
+    </div>
+</div>
+
+<div class="container">
+<div class="row my-4">
+    <div class="col-sm-4 text-center mb-4 imgzoom">
+        <i class="fa-solid fa-trophy fs-2 border border-1 rounded-3 my-3 p-3 bg-mycolor3"></i>
+        <h2>Amazing Places</h2>
+        <p>We are always ready for work.We are always ready for work.We are always ready for work.</p>
+    </div>
+
+     <div class="col-sm-4 text-center mb-4 imgzoom">
+        <i class="fa-solid fa-trophy fs-2 border border-1 rounded-3 my-3 p-3 bg-mycolor3"></i>
+        <h2>Amazing Places</h2>
+        <p>We are always ready for work.We are always ready for work.We are always ready for work.</p>
+    </div>
+
+     <div class="col-sm-4 text-center mb-4 imgzoom">
+        <i class="fa-solid fa-trophy fs-2 border border-1 rounded-3 my-3 p-3 bg-mycolor3"></i>
+        <h2>Amazing Places</h2>
+        <p>We are always ready for work.We are always ready for work.We are always ready for work.</p>
+    </div>
+</div>
+    </div>
+<!-----section end---->
+
+<!---Our Services section start----->
+
+
+     <div class="row heading text-center py-4">
+    <div class="col-sm-6 mx-auto">
+       <p class="fs-3">Our<b class="txt-color1"> Services
+           </b></p>
+        <i>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</i>
+    </div>
+</div>
+
+<div class="container">
+<div class="row section2 my-4">
+
+
+
+  {% for x in servicedata %}
+    <div class="col-sm-4 mb-4">
+      <div class="card position-relative mx-auto imgzoom border-0 shadow-lg p-3 w-100">
+
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-mycolor2">&#8377;{{x.discount_price}} <span class="visually-hidden">unread messages</span></span>
+
+  <img src="../{{x.service_picture}}" class="card-img-top" alt="...">
+         <div class="position-absolute top-5 start-5 badge rounded-pill text-bg-dark">{{x.service_category}}</div>
+  <div class="card-body">
+    <h5 class="card-title">{{x.service_name}}</h5>
+      <h6 class="card-subtitle"><b>{{x.provider_name}}</b>
+      <img src="../{{x.provider_picture}}" height="60px" width="60px" class=" float-end rounded-circle"/>
+      </h6>
+      <h6 class="card-subtitle py-2 text-secondary"><i class="fa-solid fa-location-dot"></i>{{x.address}} ,{{x.city}}</h6>
+    <div class="card-text text-warning"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <b class="text-dark float-end">&#8377;{{x.avg_price}}/-</b></div>
+    <div class="mt-3">
+
+       <a href="/service?msg={{x.id}}" class="btn bg-mycolor1 text-dark">Know more</a>
+    </div>
+  </div>
+</div>
+    </div>
+{% endfor %}
+
+</div>
+</div>
+<!----Our services section end--->
+
+<div class="row section3"></div>
+<div class="row section4"></div>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block childpage %}
+
+   <div class="row heading text-center py-4">
+    <div class="col-sm-6 mx-auto">
+       <p class="fs-3 mb-0">Your Booking <b class="txt-color1"> History
+           </b></p>
+        <i>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</i>
+    </div>
+</div>
+
+<div class="row">
+  {% for s in data %}
+    <div class="col-sm-1"></div>
+    <!------------booking history----->
+
+    <div class="col-sm-10">
+
+        <div class="card text-center mb-4">
+  <div class="card-header bg-mycolor1">
+    <div class="row text-light">
+        <div class="col-sm-2">Booking on : {{s.10}}</div>
+        <div class="col-sm-4">Appointment for : {{s.2}} | {{s.3}}</div>
+        <div class="col-sm-4">Proposed Payment : {{s.9}}</div>
+        <div class="col-sm-2 float-end">Booking ID : {{s.0}}</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Provider : {{s.13}} {{s.17}} (AC service)</h5>
+    <p class="card-text">Provider Address : {{s.22}} {{s.21}} {{s.25}}</p>
+
+  </div>
+  <div class="card-footer bg-mycolor3">
+      <div class="row">
+          <div class="col-sm-6">Current Status : {{s.11}}</div>
+          <div class="col-sm-6"> Provider Contact no. : {{s.20}}</div>
+      </div>
+  </div>
+</div>
+
+    </div>
+
+
+    <!------------booking history----->
+    <div class="col-sm-1"></div>
+  {% endfor %}
+</div>
+{% endblock %}
